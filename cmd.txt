@@ -1,0 +1,17 @@
+terraform init  -backend-config="key=prod.terraform.tfstate"
+terraform init  -backend-config="dev-backend.conf"
+
+
+terraform plan -var rsgname="kanaiya" 
+terraform plan -var-file="dev-app.tfvar"
+
+
+terraform apply -var rsgname="kanaiya" -auto-approve
+terraform apply -var-file="dev-app.tfvar" -auto-approve
+
+
+terraform destroy -auto-approve
+
+
+
+

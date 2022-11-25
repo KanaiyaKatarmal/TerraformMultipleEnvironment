@@ -10,7 +10,7 @@ terraform {
     resource_group_name  = "tamopstfstates"
     storage_account_name = "sahelloazuretfkanaiya"
     container_name       = "terraform-state"
-    key                  = "dev.terraform.tfstate"
+    key                  = "terraform.tfstate"
   }
 }
 
@@ -33,6 +33,6 @@ provider "azurerm" {
 
 # Create a resource group
 resource "azurerm_resource_group" "resourcegroup" {
-  name     = "test${random_string.random.result}"
+  name     = "${var.rsgname}${random_string.random.result}"
   location = "Central Us"
 }
