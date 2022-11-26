@@ -59,9 +59,9 @@ jobs:
     runs-on: ubuntu-latest
     environment: production
     
-    defaults:
-      run:
-        shell: bash
+#    defaults:
+#      run:
+#        shell: bash
 
     steps:
     
@@ -69,6 +69,7 @@ jobs:
       run: |
         echo "MY_BRANCH=${GITHUB_REF_NAME}" >> $GITHUB_ENV
         echo $MY_BRANCH
+        echo $GITHUB_REF_NAME
         
     - name: Checkout
       uses: actions/checkout@v2
