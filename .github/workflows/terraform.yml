@@ -59,9 +59,9 @@ jobs:
     runs-on: ubuntu-latest
     environment: production
     
-#    defaults:
-#      run:
-#        shell: bash
+    defaults:
+      run:
+        shell: bash
 
     steps:
     
