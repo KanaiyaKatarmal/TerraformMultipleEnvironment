@@ -10,7 +10,7 @@ terraform apply -var rsgname="kanaiya" -auto-approve
 terraform apply -var-file="dev-app.tfvar" -auto-approve
 
 
-terraform destroy -auto-approve
+terraform destroy -auto-approve -var-file="dev-app.tfvar"
 
 
 
