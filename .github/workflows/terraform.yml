@@ -77,14 +77,14 @@ jobs:
       uses: hashicorp/setup-terraform@v1
  
     - name: terraform Init
-      run: terraform init -backend-config="dev-backend.conf"
+      run: terraform init -backend-config="${MY_BRANCH}-backend.conf"
       working-directory: ${{ env.ROOT_PATH }}
 
     - name: terraform Apply
-      run: terraform apply -auto-approve -var-file="dev-app.tfvar"
+      run: terraform apply -auto-approve -var-file="${MY_BRANCH}-app.tfvar"
       working-directory: ${{ env.ROOT_PATH }}
 
     # - name: terraform destroy
-    #   run: terraform destroy -auto-approve
+    #   run: terraform destroy -auto-approve -var-file="${MY_BRANCH}-app.tfvar"
     #   if: ${{inputs.tf_destroy}} == true
     #   working-directory: ${{ env.ROOT_PATH }}
