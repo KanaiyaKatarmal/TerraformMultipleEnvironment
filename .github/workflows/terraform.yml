@@ -2,7 +2,7 @@ name: 'terraform-Azure'
 
 on:
   push:
-    branches: [stage]
+    branches: [dev, stage]
   pull_request:
     branches:
       - main
