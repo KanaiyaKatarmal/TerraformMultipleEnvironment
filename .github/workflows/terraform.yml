@@ -31,7 +31,10 @@ jobs:
   terraform_plan:
     name: 'terraform plan'
     runs-on: ubuntu-latest
-    
+
+    defaults:
+      run:
+        shell: bash
     
     steps:
     - name: terraform Init
@@ -67,6 +70,12 @@ jobs:
         shell: bash
 
     steps:
+    - name: terraform Init
+      run: |
+        echo "${GITHUB_REF_NAME}-server"
+        echo "MY_BRANCH=${GITHUB_REF_NAME}" >> $GITHUB_ENV
+        echo $MY_BRANCH
+        
     - name: Checkout
       uses: actions/checkout@v2
 
