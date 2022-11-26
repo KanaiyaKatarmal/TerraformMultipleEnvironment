@@ -1,18 +1,12 @@
 name: 'terraform-Azure'
 
 on:
-#  push:
-#    branches:
-#      - main
-#  pull_request:
-#    branches:
-#      - main
-  workflow_dispatch: #this attribute will enable the manual run to the pipeline
-    # Inputs the workflow accepts.
-    inputs:
-      name:
-        # Friendly description to be shown in the UI instead of 'name'
-        description: 'Person to greet'  
+  push:
+    branches: [dev, stage]
+  pull_request:
+    branches:
+      - main
+  
 
 # Use the Bash shell regardless whether the GitHub Actions runner is ubuntu-latest, macos-latest, or windows-latest
 defaults:
