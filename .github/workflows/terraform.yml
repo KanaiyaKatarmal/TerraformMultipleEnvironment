@@ -38,7 +38,7 @@ jobs:
     steps:
     - name: terraform Init
       run: |
-        echo "${{ GITHUB_REF_NAME }}-server"
+        echo "${{env.GITHUB_REF_NAME}}-server"
       
 #    - name: Checkout
 #      uses: actions/checkout@v3
