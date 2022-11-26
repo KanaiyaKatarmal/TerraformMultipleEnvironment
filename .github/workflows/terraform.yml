@@ -15,9 +15,7 @@ on:
         description: 'Person to greet'  
 
 # Use the Bash shell regardless whether the GitHub Actions runner is ubuntu-latest, macos-latest, or windows-latest
-defaults:
-  run:
-    shell: bash
+
 env: 
   ROOT_PATH: '${{github.workspace}}/terraform-azure'
   ARM_CLIENT_ID: ${{secrets.AZURE_CLIENT_ID}}
