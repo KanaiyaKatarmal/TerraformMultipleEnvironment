@@ -65,11 +65,10 @@ jobs:
 
     steps:
     
-    - name: Setup Environment
+    - name: terraform Init
       run: |
-        echo "MY_BRANCH=${GITHUB_REF_NAME}" >> $GITHUB_ENV
-        echo $MY_BRANCH
-        echo $GITHUB_REF_NAME
+        echo "GIT_BRANCH=${GITHUB_REF_NAME}" >> $GITHUB_ENV
+        echo "GIT_BRANCH=${GIT_BRANCH}"
         
     - name: Checkout
       uses: actions/checkout@v2
