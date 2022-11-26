@@ -37,8 +37,8 @@ jobs:
     - name: terraform Init
       run: |
         echo "${GITHUB_REF_NAME}-server"
-        echo "GIT_BRANCH=${GITHUB_REF_NAME}" >> $GITHUB_ENV
-        echo "GIT_BRANCH=${GIT_BRANCH}"
+        echo "MY_BRANCH=${GITHUB_REF_NAME}" >> $GITHUB_ENV
+        echo $MY_BRANCH
       
 #    - name: Checkout
 #      uses: actions/checkout@v3
