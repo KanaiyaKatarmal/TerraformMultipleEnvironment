@@ -15,9 +15,11 @@ on:
         description: 'Person to greet'  
 
 # Use the Bash shell regardless whether the GitHub Actions runner is ubuntu-latest, macos-latest, or windows-latest
-
+defaults:
+  run:
+    shell: bash
 env: 
-  ROOT_PATH: '${{github.workspace}}/terraform-azure'
+  ROOT_PATH: '${{github.workspace}}'
   ARM_CLIENT_ID: ${{secrets.AZURE_CLIENT_ID}}
   ARM_CLIENT_SECRET: ${{secrets.AZURE_CLIENT_SECRET}}
   ARM_SUBSCRIPTION_ID: ${{secrets.AZURE_SUBSCRIPTION_ID}}
@@ -31,31 +33,30 @@ jobs:
   terraform_plan:
     name: 'terraform plan'
     runs-on: ubuntu-latest
-
-    defaults:
-      run:
-        shell: bash
+    
     
     steps:
+    
     - name: terraform Init
       run: |
         echo "MY_BRANCH=${GITHUB_REF_NAME}" >> $GITHUB_ENV
         echo $MY_BRANCH
+        
       
-#    - name: Checkout
-#      uses: actions/checkout@v3
+    - name: Checkout
+      uses: actions/checkout@v3
 
-#    - name: Setup terraform
-#      uses: hashicorp/setup-terraform@v1
+    - name: Setup terraform
+      uses: hashicorp/setup-terraform@v1
 
   
-#    - name: terraform init
-#      run: terraform init -backend-config="dev-backend.conf"
-#      working-directory: ${{ env.ROOT_PATH }}
+    - name: terraform init
+      run: terraform init -backend-config="${MY_BRANCH}-backend.conf"
+      working-directory: ${{ env.ROOT_PATH }}
 
-#    - name: terraform Plan
-#      run: terraform plan -var-file="dev-app.tfvar"
-#      working-directory: ${{ env.ROOT_PATH }}
+    - name: terraform Plan
+      run: terraform plan -var-file="${MY_BRANCH}-app.tfvar"
+      working-directory: ${{ env.ROOT_PATH }}
 
      
   terraform_apply:
@@ -69,11 +70,6 @@ jobs:
         shell: bash
 
     steps:
-    - name: terraform Init
-      run: |
-        echo "${GITHUB_REF_NAME}-server"
-        echo $MY_BRANCH
-        
     - name: Checkout
       uses: actions/checkout@v2
 
