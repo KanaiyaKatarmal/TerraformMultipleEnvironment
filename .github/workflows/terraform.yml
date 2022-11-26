@@ -39,6 +39,7 @@ jobs:
     - name: terraform Init
       run: |
         echo "BARNCH=${GITHUB_REF_NAME}-server" >> $GITHUB_ENV
+        echo ${{ secrets[env.BARNCH] }} 
       
 #    - name: Checkout
 #      uses: actions/checkout@v3
