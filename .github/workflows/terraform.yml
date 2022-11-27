@@ -50,10 +50,10 @@ jobs:
       
     - name: terraform-apply
       run: |
-        export ARM_CLIENT_ID=${{ secrets[env.ARM_CLIENT_ID_NAME] }}
-        export ARM_CLIENT_SECRET=${{ secrets[env.ARM_CLIENT_SECRET_NAME] }}
-        export ARM_SUBSCRIPTION_ID=${{ secrets[env.ARM_SUBSCRIPTION_ID_NAME] }}
-        export ARM_TENANT_ID=${{ secrets[env.ARM_TENANT_ID_NAME] }}         
+        echo ARM_CLIENT_ID=${{ secrets[env.ARM_CLIENT_ID_NAME] }} > $GITHUB_ENV
+        echo ARM_CLIENT_SECRET=${{ secrets[env.ARM_CLIENT_SECRET_NAME] }} > $GITHUB_ENV
+        echo ARM_SUBSCRIPTION_ID=${{ secrets[env.ARM_SUBSCRIPTION_ID_NAME] }} > $GITHUB_ENV
+        echo ARM_TENANT_ID=${{ secrets[env.ARM_TENANT_ID_NAME] }} > $GITHUB_ENV
 
         
       
