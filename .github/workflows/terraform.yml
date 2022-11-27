@@ -42,7 +42,7 @@ jobs:
     - name: Setup Environment
       run: |
         echo "MY_BRANCH=${GITHUB_REF_NAME}" >> $GITHUB_ENV
-        echo ${{ $MY_BRANCH }}
+        echo ${{ MY_BRANCH }}
         echo ${{ env.STAGE_NAME }}
         
     - name: Prepare Backend
