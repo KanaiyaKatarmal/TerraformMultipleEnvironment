@@ -46,7 +46,7 @@ jobs:
         
     - name: Load Variable
       run: | 
-        echo ${MY_BRANCH}
+#        echo ${MY_BRANCH}
         echo ARM_CLIENT_ID_NAME=ARM_CLIENT_ID_${MY_BRANCH} >> $GITHUB_ENV
         echo ARM_CLIENT_SECRET_NAME=ARM_CLIENT_SECRET_${MY_BRANCH}  >> $GITHUB_ENV
         echo ARM_SUBSCRIPTION_ID_NAME=ARM_SUBSCRIPTION_ID_${MY_BRANCH} >> $GITHUB_ENV
@@ -55,10 +55,10 @@ jobs:
         
     - name: Print Variable
       run: | 
-        echo ${ARM_CLIENT_ID_NAME}
-        echo ${ARM_CLIENT_SECRET_NAME}
-        echo ${ARM_SUBSCRIPTION_ID_NAME}
-        echo ${ARM_TENANT_ID_NAME}
+#        echo ${ARM_CLIENT_ID_NAME}
+#        echo ${ARM_CLIENT_SECRET_NAME}
+#        echo ${ARM_SUBSCRIPTION_ID_NAME}
+#        echo ${ARM_TENANT_ID_NAME}
         
         echo ARM_CLIENT_ID=${{ secrets[env.ARM_CLIENT_ID_NAME] }}
         echo ARM_CLIENT_SECRET=${{ secrets[env.ARM_CLIENT_SECRET_NAME] }} 
