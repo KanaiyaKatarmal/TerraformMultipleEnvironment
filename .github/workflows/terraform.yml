@@ -70,11 +70,11 @@ jobs:
 
   
     - name: terraform init
-      run: terraform init -backend-config="${GITHUB_REF_NAME}-backend.conf"
+      run: terraform init -backend-config="${MY_BRANCH}-backend.conf"
       working-directory: ${{ env.ROOT_PATH }}
 
     - name: terraform Plan
-      run: terraform plan -var-file="${GITHUB_REF_NAME}-app.tfvar"
+      run: terraform plan -var-file="${MY_BRANCH}-app.tfvar"
       working-directory: ${{ env.ROOT_PATH }}
 
      
