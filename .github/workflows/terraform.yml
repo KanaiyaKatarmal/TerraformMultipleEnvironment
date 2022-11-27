@@ -44,9 +44,9 @@ jobs:
     - name: set-arm-credentials
       run: |
         echo "::set-env name=ARM_CLIENT_ID_NAME::ARM_CLIENT_ID_${GITHUB_REF_NAME}"
-        echo "::set-env name=ARM_CLIENT_SECRET_NAME::ARM_CLIENT_SECRET_${GITHUB_REF_SLUG}"
-        echo "::set-env name=ARM_SUBSCRIPTION_ID_NAME::ARM_SUBSCRIPTION_ID_${GITHUB_REF_SLUG}"
-        echo "::set-env name=ARM_TENANT_ID_NAME::ARM_TENANT_ID_${GITHUB_REF_SLUG}"
+        echo "::set-env name=ARM_CLIENT_SECRET_NAME::ARM_CLIENT_SECRET_${GITHUB_REF_NAME}"
+        echo "::set-env name=ARM_SUBSCRIPTION_ID_NAME::ARM_SUBSCRIPTION_ID_${GITHUB_REF_NAME}"
+        echo "::set-env name=ARM_TENANT_ID_NAME::ARM_TENANT_ID_${GITHUB_REF_NAME}"
       
     - name: terraform-apply
       run: |
