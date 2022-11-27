@@ -43,6 +43,7 @@ jobs:
     - name: Setup Environment
       run: |
         echo "MY_BRANCH=${GITHUB_REF_NAME}" >> $GITHUB_ENV
+        echo "welcome"
 
       - name: Set AWS credentials as env vars
         run: |
