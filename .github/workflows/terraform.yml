@@ -60,6 +60,11 @@ jobs:
         echo ${ARM_SUBSCRIPTION_ID_NAME}
         echo ${ARM_TENANT_ID_NAME}
         
+        echo ARM_CLIENT_ID=${{ secrets[env.ARM_CLIENT_ID_NAME] }}
+        echo ARM_CLIENT_SECRET=${{ secrets[env.ARM_CLIENT_SECRET_NAME] }} 
+        echo ARM_SUBSCRIPTION_ID=${{ secrets[env.ARM_SUBSCRIPTION_ID_NAME] }}
+        echo ARM_TENANT_ID=${{ secrets[env.ARM_TENANT_ID_NAME] }}
+        
       
     - name: Checkout
       uses: actions/checkout@v3
