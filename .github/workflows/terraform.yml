@@ -23,7 +23,7 @@ env:
 #  ARM_CLIENT_SECRET: ${{secrets.AZURE_CLIENT_SECRET}}
 #  ARM_SUBSCRIPTION_ID: ${{secrets.AZURE_SUBSCRIPTION_ID}}
 #  ARM_TENANT_ID: ${{secrets.AZURE_TENANT_ID}}
-  STAGE_NAME: 'dev'
+#  STAGE_NAME: 'dev'
   
 permissions:
   contents: read
@@ -43,11 +43,10 @@ jobs:
       run: |
         echo "MY_BRANCH=${GITHUB_REF_NAME}" >> $GITHUB_ENV
         echo ${{ env.MY_BRANCH }}
-        echo ${{ env.STAGE_NAME }}
-        echo ${STAGE_NAME}
         
     - name: Prepare Backend
       run: | 
+        echo ${MY_BRANCH}
         echo ARM_CLIENT_ID=ARM_CLIENT_ID_${MY_BRANCH} >> $GITHUB_ENV
         echo ARM_CLIENT_SECRET=ARM_CLIENT_SECRET_${MY_BRANCH}  >> $GITHUB_ENV
         echo ARM_SUBSCRIPTION_ID=ARM_SUBSCRIPTION_ID_${MY_BRANCH} >> $GITHUB_ENV
