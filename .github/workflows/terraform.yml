@@ -46,10 +46,10 @@ jobs:
         
     - name: Load Variable
       run: | 
-        echo ARM_CLIENT_ID_NAME=ARM_CLIENT_ID_${MY_BRANCH} >> $GITHUB_ENV
-        echo ARM_CLIENT_SECRET_NAME=ARM_CLIENT_SECRET_${MY_BRANCH}  >> $GITHUB_ENV
-        echo ARM_SUBSCRIPTION_ID_NAME=ARM_SUBSCRIPTION_ID_${MY_BRANCH} >> $GITHUB_ENV
-        echo ARM_TENANT_ID_NAME=ARM_TENANT_ID_${MY_BRANCH} >> $GITHUB_ENV
+        echo ARM_CLIENT_ID_NAME=ARM_CLIENT_ID_dev} >> $GITHUB_ENV
+        echo ARM_CLIENT_SECRET_NAME=ARM_CLIENT_SECRET_dev  >> $GITHUB_ENV
+        echo ARM_SUBSCRIPTION_ID_NAME=ARM_SUBSCRIPTION_ID_dev >> $GITHUB_ENV
+        echo ARM_TENANT_ID_NAME=ARM_TENANT_ID_dev >> $GITHUB_ENV
         
         
     - name: Print Variable
