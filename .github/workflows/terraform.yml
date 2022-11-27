@@ -42,10 +42,10 @@ jobs:
     - name: Setup Environment
       run: |
         echo "MY_BRANCH=${GITHUB_REF_NAME}" >> $GITHUB_ENV
-        echo $MY_BRANCH
+        echo ${{ $MY_BRANCH }}
         echo ${{ env.STAGE_NAME }}
         
-    - name: prepare-backend
+    - name: Prepare Backend
       run: |
         echo ARM_CLIENT_ID=${{ secrets.AZURE_CLIENT_ID }} >> $GITHUB_ENV
         echo ARM_CLIENT_SECRET=${{ secrets.AZURE_CLIENT_SECRET }}  >> $GITHUB_ENV
