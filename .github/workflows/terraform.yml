@@ -6,6 +6,11 @@ on:
   pull_request:
     branches:
       - main
+      
+  workflow_dispatch: 
+    inputs:
+      name:
+        description: 'Person to greet' 
   
 
 #Use the Bash shell regardless whether the GitHub Actions runner is ubuntu-latest, macos-latest, or windows-latest
