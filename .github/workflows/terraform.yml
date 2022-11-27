@@ -43,10 +43,10 @@ jobs:
         
     - name: set-arm-credentials
       run: |
-        echo "::set-env name=ARM_CLIENT_ID_NAME::ARM_CLIENT_ID_DEV"
-        echo "::set-env name=ARM_CLIENT_SECRET_NAME::ARM_CLIENT_SECRET_DEV"
-        echo "::set-env name=ARM_SUBSCRIPTION_ID_NAME::ARM_SUBSCRIPTION_ID_DEV"
-        echo "::set-env name=ARM_TENANT_ID_NAME::ARM_TENANT_ID_DEV"
+        echo "::set-env name=ARM_CLIENT_ID_NAME::AZURE_CLIENT_ID_DEV"
+        echo "::set-env name=ARM_CLIENT_SECRET_NAME::AZURE_CLIENT_SECRET_DEV"
+        echo "::set-env name=ARM_SUBSCRIPTION_ID_NAME::AZURE_SUBSCRIPTION_ID_DEV"
+        echo "::set-env name=ARM_TENANT_ID_NAME::AZURE_TENANT_ID_DEV"
       
     - name: terraform-apply
       run: |
