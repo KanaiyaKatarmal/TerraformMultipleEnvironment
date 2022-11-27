@@ -40,17 +40,17 @@ jobs:
         
     steps:
     
-      - name: Setup Environment
-        run: |
-          echo "MY_BRANCH=${GITHUB_REF_NAME}" >> $GITHUB_ENV
-          echo "welcome"
+    - name: Setup Environment
+      run: |
+        echo "MY_BRANCH=${GITHUB_REF_NAME}" >> $GITHUB_ENV
+        echo "welcome"
 
-      - name: Set AWS credentials as env vars
-        run: |
-          echo "ARM_CLIENT_ID_NAME=AZURE_CLIENT_ID_${MY_BRANCH}" >> $GITHUB_ENV
-          echo "ARM_CLIENT_SECRET_NAME=AZURE_CLIENT_SECRET_${MY_BRANCH}" >> $GITHUB_ENV
-          echo "ARM_SUBSCRIPTION_ID_NAME=AZURE_SUBSCRIPTION_ID_${MY_BRANCH}" >> $GITHUB_ENV
-          echo "ARM_TENANT_ID_NAME=AZURE_TENANT_ID_${MY_BRANCH}" >> $GITHUB_ENV
+    - name: Set AWS credentials as env vars
+      run: |
+        echo "ARM_CLIENT_ID_NAME=AZURE_CLIENT_ID_${MY_BRANCH}" >> $GITHUB_ENV
+        echo "ARM_CLIENT_SECRET_NAME=AZURE_CLIENT_SECRET_${MY_BRANCH}" >> $GITHUB_ENV
+        echo "ARM_SUBSCRIPTION_ID_NAME=AZURE_SUBSCRIPTION_ID_${MY_BRANCH}" >> $GITHUB_ENV
+        echo "ARM_TENANT_ID_NAME=AZURE_TENANT_ID_${MY_BRANCH}" >> $GITHUB_ENV
           
 #    - name: set-arm-credentials
 #      run: |
