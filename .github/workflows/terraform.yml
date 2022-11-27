@@ -39,26 +39,21 @@ jobs:
         
     steps:
     
-    - name: Setup Environment
+        
+    - name: set-arm-credentials
       run: |
-        echo "MY_BRANCH=${GITHUB_REF_NAME}" >> $GITHUB_ENV
-        echo ${MY_BRANCH}
-        
-    - name: Load Variable
-      run: | 
-        echo ARM_CLIENT_ID_NAME=ARM_CLIENT_ID_dev} >> $GITHUB_ENV
-        echo ARM_CLIENT_SECRET_NAME=ARM_CLIENT_SECRET_dev  >> $GITHUB_ENV
-        echo ARM_SUBSCRIPTION_ID_NAME=ARM_SUBSCRIPTION_ID_dev >> $GITHUB_ENV
-        echo ARM_TENANT_ID_NAME=ARM_TENANT_ID_dev >> $GITHUB_ENV
-        echo ${{secrets.AZURE_CLIENT_ID_dev}}
-        
-        
-#    - name: Print Variable
-#      run: | 
-#        echo ARM_CLIENT_ID=${{ secrets[env.ARM_CLIENT_ID_NAME] }}
-#        echo ARM_CLIENT_SECRET=${{ secrets[env.ARM_CLIENT_SECRET_NAME] }} 
-#        echo ARM_SUBSCRIPTION_ID=${{ secrets[env.ARM_SUBSCRIPTION_ID_NAME] }}
-#        echo ARM_TENANT_ID=${{ secrets[env.ARM_TENANT_ID_NAME] }}
+        echo "::set-env name=ARM_CLIENT_ID_NAME::ARM_CLIENT_ID_${GITHUB_REF_NAME}"
+        echo "::set-env name=ARM_CLIENT_SECRET_NAME::ARM_CLIENT_SECRET_${GITHUB_REF_SLUG}"
+        echo "::set-env name=ARM_SUBSCRIPTION_ID_NAME::ARM_SUBSCRIPTION_ID_${GITHUB_REF_SLUG}"
+        echo "::set-env name=ARM_TENANT_ID_NAME::ARM_TENANT_ID_${GITHUB_REF_SLUG}"
+      
+    - name: terraform-apply
+      run: |
+        export ARM_CLIENT_ID=${{ secrets[env.ARM_CLIENT_ID_NAME] }}
+        export ARM_CLIENT_SECRET=${{ secrets[env.ARM_CLIENT_SECRET_NAME] }}
+        export ARM_SUBSCRIPTION_ID=${{ secrets[env.ARM_SUBSCRIPTION_ID_NAME] }}
+        export ARM_TENANT_ID=${{ secrets[env.ARM_TENANT_ID_NAME] }}         
+
         
       
     - name: Checkout
