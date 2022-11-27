@@ -50,6 +50,7 @@ jobs:
         echo ARM_CLIENT_SECRET_NAME=ARM_CLIENT_SECRET_dev  >> $GITHUB_ENV
         echo ARM_SUBSCRIPTION_ID_NAME=ARM_SUBSCRIPTION_ID_dev >> $GITHUB_ENV
         echo ARM_TENANT_ID_NAME=ARM_TENANT_ID_dev >> $GITHUB_ENV
+        echo ${{secrets.AZURE_CLIENT_ID_dev}}
         
         
 #    - name: Print Variable
