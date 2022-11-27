@@ -42,11 +42,11 @@ jobs:
       
     - name: Setup Environment
       run: | 
-        echo "MY_BRANCH=${GITHUB_REF_NAME}" >> $GITHUB_ENV
-        echo "ARM_CLIENT_ID_NAME=ARM_CLIENT_ID_${MY_BRANCH}" >> $GITHUB_ENV
-        echo "ARM_CLIENT_SECRET_NAME=ARM_CLIENT_SECRET_${MY_BRANCH}"  >> $GITHUB_ENV
-        echo "ARM_SUBSCRIPTION_ID_NAME=ARM_SUBSCRIPTION_ID_${MY_BRANCH}" >> $GITHUB_ENV
-        echo "ARM_TENANT_ID_NAME=ARM_TENANT_ID_${MY_BRANCH}" >> $GITHUB_ENV
+        echo MY_BRANCH=${GITHUB_REF_NAME} >> $GITHUB_ENV
+        echo ARM_CLIENT_ID_NAME=ARM_CLIENT_ID_${MY_BRANCH} >> $GITHUB_ENV
+        echo ARM_CLIENT_SECRET_NAME=ARM_CLIENT_SECRET_${MY_BRANCH}  >> $GITHUB_ENV
+        echo ARM_SUBSCRIPTION_ID_NAME=ARM_SUBSCRIPTION_ID_${MY_BRANCH} >> $GITHUB_ENV
+        echo ARM_TENANT_ID_NAME=ARM_TENANT_ID_${MY_BRANCH} >> $GITHUB_ENV
         
         
     - name: Prepare Backend
@@ -57,10 +57,10 @@ jobs:
         echo ${ARM_SUBSCRIPTION_ID_NAME}
         echo ${ARM_TENANT_ID_NAME}
         
-        echo ARM_CLIENT_ID=${{ secrets[env.ARM_CLIENT_ID_NAME] }}
-        echo ARM_CLIENT_SECRET=${{ secrets[env.ARM_CLIENT_SECRET_NAME] }} 
-        echo ARM_SUBSCRIPTION_ID=${{ secrets[env.ARM_SUBSCRIPTION_ID_NAME] }}
-        echo ARM_TENANT_ID=${{ secrets[env.ARM_TENANT_ID_NAME] }} 
+#        echo ARM_CLIENT_ID=${{ secrets[env.ARM_CLIENT_ID_NAME] }}
+#        echo ARM_CLIENT_SECRET=${{ secrets[env.ARM_CLIENT_SECRET_NAME] }} 
+#        echo ARM_SUBSCRIPTION_ID=${{ secrets[env.ARM_SUBSCRIPTION_ID_NAME] }}
+#        echo ARM_TENANT_ID=${{ secrets[env.ARM_TENANT_ID_NAME] }} 
         
       
     - name: Checkout
