@@ -18,7 +18,7 @@ env:
   ARM_CLIENT_SECRET: ${{secrets.AZURE_CLIENT_SECRET}}
   ARM_SUBSCRIPTION_ID: ${{secrets.AZURE_SUBSCRIPTION_ID}}
   ARM_TENANT_ID: ${{secrets.AZURE_TENANT_ID}}
-  STAGE_NAME: production
+  STAGE_NAME: '${{github.workspace}}-${GITHUB_REF_NAME}'
   
 permissions:
   contents: read
@@ -35,6 +35,15 @@ jobs:
       run: |
         echo "MY_BRANCH=${GITHUB_REF_NAME}" >> $GITHUB_ENV
         echo $MY_BRANCH
+        echo ${{ env.STAGE_NAME }}
+        
+    - name: prepare-backend
+      run: |
+        export ARM_CLIENT_ID=${{ secrets.AZURE_CLIENT_ID }}
+        export ARM_CLIENT_SECRET=${{ secrets.AZURE_CLIENT_SECRET }} 
+        export ARM_SUBSCRIPTION_ID=${{ secrets.AZURE_SUBSCRIPTION_ID }}
+        export ARM_TENANT_ID=${{ secrets.AZURE_TENANT_ID }} 
+
         
       
     - name: Checkout
