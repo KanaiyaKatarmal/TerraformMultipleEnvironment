@@ -19,10 +19,10 @@ resource "azurerm_windows_web_app" "example" {
   location            = azurerm_resource_group.resourcegroup.location
   service_plan_id     = azurerm_service_plan.serviceplan.id
 
-  site_config {}
-
-  application_stack {
+  site_config {
     current_stack     = "dotnet"
     dotnet_version    =  "v4.0"
-    }
+  }
+
+ 
 }
