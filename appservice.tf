@@ -2,6 +2,7 @@ resource "random_string" "random_webapp_number" {
   length = 6
   special = false
   upper = false
+  min_numeric = 0
 }
 
 
@@ -13,7 +14,7 @@ resource "azurerm_service_plan" "serviceplan" {
   os_type             = "Windows"
 }
 
-resource "azurerm_windows_web_app" "example" {
+resource "azurerm_windows_web_app" "webapp" {
   name                = "vin_webapp${random_string.random_webapp_number.result}"
   resource_group_name =  azurerm_resource_group.resourcegroup.name
   location            = azurerm_resource_group.resourcegroup.location
@@ -26,6 +27,9 @@ resource "azurerm_windows_web_app" "example" {
       dotnet_version    =  "v4.0"
       } 
   }
+}
 
- 
+
+output "web_url" {
+    value = "${azurerm_windows_web_app.webapp.name}.azurewebsites.net"
 }
