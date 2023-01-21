@@ -15,11 +15,6 @@ terraform {
 }
 
 
-resource "random_string" "random" {
-  length = 6
-  special = false
-  upper = false
-}
 
 # Configure the Microsoft Azure Provider
 provider "azurerm" {
@@ -30,9 +25,3 @@ provider "azurerm" {
   # tenant_id       = var.tenant_id
 }
 
-
-# Create a resource group
-resource "azurerm_resource_group" "resourcegroup" {
-  name     = "${var.rsgname}${random_string.random.result}"
-  location = "Central Us"
-}
