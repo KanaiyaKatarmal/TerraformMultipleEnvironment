@@ -15,7 +15,7 @@ resource "azurerm_service_plan" "serviceplan" {
 }
 
 resource "azurerm_windows_web_app" "webapp" {
-  name                = "vin_webapp_${random_string.random_webapp_number.result}"
+  name                = "vin-webapp-${random_string.random_webapp_number.result}"
   resource_group_name =  azurerm_resource_group.resourcegroup.name
   location            = azurerm_resource_group.resourcegroup.location
   service_plan_id     = azurerm_service_plan.serviceplan.id
